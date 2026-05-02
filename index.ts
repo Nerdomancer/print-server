@@ -17,14 +17,16 @@ app.post("/upload", function (req: Request, res: Response){
 		if (err) {
 			console.log(err);
 			res.send("Failed !!");
-		} else res.send("Successfully Uploaded !!");
+		} else {
+			res.sendFile(__dirname + "/html/print.html");
+		}
     });
 	}
 })
 
 app.get('/', (req: Request, res: Response) => {
 	console.log("testing testing");
-	res.sendFile("/home/nerdomancerkirou/projects/printserver/html/index.html");
+	res.sendFile(__dirname + "/html/index.html");
 });
 
 app.listen(PORT, ()=>{
